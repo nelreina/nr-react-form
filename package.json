@@ -19,7 +19,9 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
-    "redux-form": "^7.3.0"
+    "prop-types": "^15.6.1",
+    "redux-form": "^7.3.0",
+    "string": "^3.3.3"
   },
   "peerDependencies": {
     "react": "16.x"
@@ -31,11 +33,17 @@
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7"
   },
-  "author": "",
-  "homepage": "",
+  "author": "Nelson Reina <nelreina@gmail.com>",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nelreina/nr-react-form.git"
+  },
   "keywords": [
-    "react-component"
+    "react-component",
+    "react",
+    "form",
+    "bootstrap",
+    "redux-form"
   ]
 }

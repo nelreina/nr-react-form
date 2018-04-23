@@ -3,13 +3,20 @@ import { render } from 'react-dom';
 import { createStoreDOM } from 'nelreina-web-utils';
 import { Provider } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
+import { BootstrapField } from '../../src';
 
+const optStars = ['1 star', '2 stars', '3 stars', '4 stars', '5 stars'];
 const DemoForm = props => {
   const { handleSubmit, action } = props;
   return (
     <form onSubmit={handleSubmit(action)}>
-      <Field name="email" component="input" placeholder="email" />
-      <pre>{JSON.stringify(props, null, 2)}</pre>
+      <Field name="email" component={BootstrapField} />
+      <Field
+        name="star"
+        type="select"
+        component={BootstrapField}
+        options={optStars}
+      />
     </form>
   );
 };
@@ -19,8 +26,6 @@ const RForm = reduxForm({ form: 'demo' })(DemoForm);
 import rootReducer from './rootReducer';
 
 const store = createStoreDOM(rootReducer, {});
-
-import Example from '../../src';
 
 class Demo extends Component {
   state = { values: {} };
@@ -33,7 +38,6 @@ class Demo extends Component {
         <div>
           <h1>nr-react-form Demo</h1>
           <RForm action={this.sform} />
-          <Example />
           <pre>{JSON.stringify(this.state, null, 2)}</pre>
         </div>
       </Provider>
