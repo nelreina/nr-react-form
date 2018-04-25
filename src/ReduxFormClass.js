@@ -3,19 +3,19 @@ import { reduxForm } from 'redux-form';
 import List from 'nr-react-list';
 import FieldItem from './FieldItem';
 
-class ReduxForm {
-  constructor(name, fields, action, buttonText = 'Submit') {
+class ReduxFormClass {
+  constructor(name, action, buttonText = 'Submit') {
     this._name = name;
-    this._fields = fields;
     this._action = action;
     this._buttonText = buttonText;
   }
-  create() {
+  create(fields) {
     let Form = props => {
-      const { handleSubmit } = props;
+      const { handleSubmit, action } = props;
+      const onSubmit = action || this._action;
       return (
-        <form onSubmit={handleSubmit(this._action)}>
-          <List of={FieldItem} iterator={this._fields} />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <List of={FieldItem} iterator={fields} />
           <button type="submit">{this._buttonText}</button>
         </form>
       );
@@ -27,4 +27,4 @@ class ReduxForm {
   }
 }
 
-export default ReduxForm;
+export default ReduxFormClass;
