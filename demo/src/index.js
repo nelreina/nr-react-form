@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { createStoreDOM } from 'nelreina-web-utils';
 import { Provider } from 'react-redux';
-import createReduxForm from '../../src/createReduxForm';
+import { createReduxForm } from '../../src';
 import rootReducer from './rootReducer';
 
 const store = createStoreDOM(rootReducer, {});
@@ -29,12 +29,13 @@ class Demo extends Component {
     this.setState(() => ({ values }));
   };
   render() {
+    const DemoForm = createReduxForm('demo', fields, this.action);
     return (
       <Provider store={store}>
         <div>
           <h1>nr-react-form Demo</h1>
           <h3>Use createReduxForm</h3>
-          {createReduxForm('demo', fields, this.action)}
+          <DemoForm />
           <pre>{JSON.stringify(this.state, null, 2)}</pre>
         </div>
       </Provider>

@@ -12,9 +12,9 @@ class ReduxForm {
   }
   create() {
     let Form = props => {
-      const { handleSubmit, action } = props;
+      const { handleSubmit } = props;
       return (
-        <form onSubmit={handleSubmit(action)}>
+        <form onSubmit={handleSubmit(this._action)}>
           <List of={FieldItem} iterator={this._fields} />
           <button type="submit">{this._buttonText}</button>
         </form>
@@ -23,7 +23,7 @@ class ReduxForm {
 
     Form = reduxForm({ form: this._name })(Form);
 
-    return <Form action={this._action} />;
+    return Form;
   }
 }
 
