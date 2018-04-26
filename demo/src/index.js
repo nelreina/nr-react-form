@@ -4,6 +4,7 @@ import { createStoreDOM } from 'nelreina-web-utils';
 import { Provider } from 'react-redux';
 import {
   createReduxForm,
+  ReduxFormClass,
   ReduxLoginFormClass,
   LoginFormEmail
 } from '../../src';
@@ -27,13 +28,18 @@ const fields = [
     label: 'Email address'
   }
 ];
+const initValues = {
+  firstName: 'Nelson',
+  lastName: 'Reina'
+};
 class Demo extends Component {
   state = { values: {} };
   action = values => {
     this.setState(() => ({ values }));
   };
   render() {
-    const DemoForm = createReduxForm('demo', fields, this.action);
+    const DemoFormWithMethod = createReduxForm('demo', fields, this.action);
+    const DemoForm = new ReduxFormClass('demo2').create(fields, initValues);
     const LFEWithClass = new ReduxLoginFormClass('loginForm').withEmail();
     const LoginForm = new ReduxLoginFormClass('loginForm').withUsername();
     return (
@@ -41,7 +47,9 @@ class Demo extends Component {
         <div>
           <h1>nr-react-form Demo</h1>
           <h2>Use createReduxForm</h2>
-          <DemoForm />
+          <DemoFormWithMethod />
+          <h2>Use ReduxFormClass with Initial State</h2>
+          <DemoForm action={this.action} />
           <h2>Use LoginForm with Email</h2>
           <h4>created with Class</h4>
           <LFEWithClass action={this.action} />

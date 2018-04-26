@@ -9,7 +9,7 @@ class ReduxFormClass {
     this._action = action;
     this._buttonText = buttonText;
   }
-  create(fields) {
+  create(fields, initialValues) {
     let Form = props => {
       const { handleSubmit, action } = props;
       const onSubmit = action || this._action;
@@ -21,7 +21,7 @@ class ReduxFormClass {
       );
     };
 
-    Form = reduxForm({ form: this._name })(Form);
+    Form = reduxForm({ form: this._name, initialValues })(Form);
 
     return Form;
   }
