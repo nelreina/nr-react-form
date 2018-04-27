@@ -5,10 +5,12 @@ import { Provider } from 'react-redux';
 import {
   createReduxForm,
   ReduxFormClass,
-  ReduxLoginFormClass,
-  LoginFormEmail
+  LoginFormEmail,
+  LoginFormUserName
 } from '../../src';
 import rootReducer from './rootReducer';
+import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import './app.css';
 
 const store = createStoreDOM(rootReducer, {});
 const fields = [
@@ -30,7 +32,8 @@ const fields = [
 ];
 const initValues = {
   firstName: 'Nelson',
-  lastName: 'Reina'
+  lastName: 'Reina',
+  email: 'nelreina@gmail.com'
 };
 class Demo extends Component {
   state = { values: {} };
@@ -38,27 +41,37 @@ class Demo extends Component {
     this.setState(() => ({ values }));
   };
   render() {
-    const DemoFormWithMethod = createReduxForm('demo', fields, this.action);
-    const DemoForm = new ReduxFormClass('demo2').create(fields, initValues);
-    const LFEWithClass = new ReduxLoginFormClass('loginForm').withEmail();
-    const LoginForm = new ReduxLoginFormClass('loginForm').withUsername();
+    const DemoForm1 = createReduxForm('demo1', fields);
+    let DemoForm2 = new ReduxFormClass('demo2', fields, initValues);
+    DemoForm2.button('Demo2', 'btn btn-success');
+    DemoForm2 = DemoForm2.getComponent();
+
     return (
       <Provider store={store}>
-        <div>
+        <div className="container ">
           <h1>nr-react-form Demo</h1>
-          <h2>Use createReduxForm</h2>
-          <DemoFormWithMethod />
-          <h2>Use ReduxFormClass with Initial State</h2>
-          <DemoForm action={this.action} />
-          <h2>Use LoginForm with Email</h2>
-          <h4>created with Class</h4>
-          <LFEWithClass action={this.action} />
-          <h4>Use LoginFormEmail Component</h4>
-          <LoginFormEmail action={this.action} />
-          <h2>Use LoginForm with Username</h2>
-          <LoginForm action={this.action} />
-          <h4>Result onSubmit </h4>
-          <pre>{JSON.stringify(this.state, null, 2)}</pre>
+          <div className="app">
+            <div className="forms">
+              <h3>Use createReduxForm</h3>
+              <DemoForm1 action={this.action} />
+              <hr />
+
+              <h3>Use ReduxFormClass with Initial State</h3>
+              <DemoForm2 action={this.action} />
+              <hr />
+
+              <h3>Use LoginForm with Email</h3>
+              <LoginFormEmail action={this.action} />
+              <hr />
+
+              <h3>Use LoginForm with UserName</h3>
+              <LoginFormUserName action={this.action} />
+            </div>
+            <div className="result">
+              <h4>Result onSubmit </h4>
+              <pre>{JSON.stringify(this.state, null, 2)}</pre>
+            </div>
+          </div>
         </div>
       </Provider>
     );
