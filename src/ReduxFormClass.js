@@ -13,6 +13,7 @@ class ReduxFormClass {
   button(text, classNames) {
     this._buttonClass = classNames;
     this._buttonText = text;
+    return this;
   }
   getComponent() {
     let Form = props => {
@@ -20,9 +21,9 @@ class ReduxFormClass {
 
       return (
         <form onSubmit={handleSubmit(action)}>
-          <List of={FieldItem} iterator={this._fields} />
+          <List of={FieldItem} iterator={this._fields} keyname="name" />
           <button className={this._buttonClass} type="submit">
-            {this._buttonText}
+            {this._buttonText || 'Submit'}
           </button>
         </form>
       );

@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr;
 }
 .forms {
-  padding: 0 2em;
+  padding-right: 2em;
   height: 90vh;
   overflow: scroll;
 }
