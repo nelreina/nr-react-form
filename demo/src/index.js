@@ -28,12 +28,46 @@ const fields = [
     type: 'email',
     name: 'email',
     label: 'Email address'
+  },
+  {
+    type: 'select',
+    name: 'ocupation',
+    label: 'Ocupation',
+    options: ['Developer', 'Consultant']
+  },
+  {
+    type: 'select',
+    name: 'star',
+    label: 'Star',
+    options: [
+      {
+        value: 1,
+        text: '1 star'
+      },
+      {
+        value: 2,
+        text: '2 stars'
+      },
+      {
+        value: 3,
+        text: '3 stars'
+      },
+      {
+        value: 4,
+        text: '4 stars'
+      },
+      {
+        value: 5,
+        text: '5 stars'
+      }
+    ]
   }
 ];
 const initValues = {
   firstName: 'Nelson',
   lastName: 'Reina',
-  email: 'nelreina@gmail.com'
+  email: 'nelreina@gmail.com',
+  star: 5
 };
 class Demo extends Component {
   state = { values: {} };
@@ -52,14 +86,13 @@ class Demo extends Component {
           <h1>nr-react-form Demo</h1>
           <div className="app">
             <div className="forms">
-              <h3>Use createReduxForm</h3>
-              <DemoForm1 action={this.action} />
-              <hr />
-
               <h3>Use ReduxFormClass with Initial State</h3>
               <DemoForm2 action={this.action} />
               <hr />
 
+              <h3>Use createReduxForm</h3>
+              <DemoForm1 action={this.action} />
+              <hr />
               <h3>Use LoginForm with Email</h3>
               <LoginFormEmail action={this.action} />
               <hr />

@@ -3,10 +3,7 @@ import { Field } from 'redux-form';
 import BootstrapField from './BootstrapField';
 
 const FieldItem = ({ item: field }) => {
-  const { type, name, label } = field;
-  return (
-    <Field type={type} name={name} label={label} component={BootstrapField} />
-  );
+  return <Field {...field} component={BootstrapField} />;
 };
 
 export default FieldItem;
