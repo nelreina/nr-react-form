@@ -1,12 +1,16 @@
 import Form from './ReduxFormClass';
+const isRequired = true;
+
 const emailFields = {
   email: {
     type: 'email',
-    label: 'Email Address'
+    label: 'Email Address',
+    isRequired
   },
   password: {
     type: 'password',
-    label: 'Password'
+    label: 'Password',
+    isRequired
   }
 };
 const LoginForm = new Form('loginFormEmail', emailFields, {});

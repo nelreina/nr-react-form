@@ -1,16 +1,18 @@
 import { ReduxFormClass as Form } from '../../src';
 const job = ['Developer', 'Consultant', 'Project Manager'];
+const isRequired = true;
 const fields = {
-  firstName: { type: 'text' },
+  firstName: { type: 'text', isRequired, minLength: 3, maxLength: 10 },
   lastName: { type: 'text' },
-  email: { type: 'email' },
-  twitter: { type: 'text' },
-  job: { type: 'select', options: job }
+  email: { type: 'email', isRequired },
+  twitter: { type: 'twitter' },
+  job: { type: 'select', options: job, isRequired },
+  yearOfBirth: { maxLength: 4, minValue: 1900 }
 };
 const initValues = {
   firstName: 'Nelson',
   lastName: 'Reina',
-  email: 'nelreina@gmail.con',
+  email: 'nelreina@gmail.com',
   twitter: '@nelreina',
   job: 'Developer'
 };

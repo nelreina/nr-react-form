@@ -4,6 +4,7 @@ import { createStoreDOM } from 'nelreina-web-utils';
 import { Provider } from 'react-redux';
 
 import ReduxFormDemo from './ReduxForm';
+import { LoginFormEmail } from '../../src';
 import rootReducer from './rootReducer';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import './app.css';
@@ -23,6 +24,7 @@ class Demo extends Component {
           <div className="app">
             <div className="forms">
               <h3>Redux Form Demo</h3>
+              {/* <LoginFormEmail action={this.action} /> */}
               <ReduxFormDemo action={this.action} />
             </div>
             <div className="result">

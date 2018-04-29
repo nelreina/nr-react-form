@@ -24,7 +24,8 @@
     "nr-react-list": "^1.2.1",
     "prop-types": "^15.6.1",
     "redux-form": "^7.3.0",
-    "string": "^3.3.3"
+    "string": "^3.3.3",
+    "validator": "^9.4.1"
   },
   "peerDependencies": {
     "react": "16.x"
