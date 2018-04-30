@@ -70,3 +70,13 @@ export const checkMaxLength = (value, config, name) => {
     }
   }
 };
+export const checkIsEqual = (values, value, config, name) => {
+  if (config.equals && value) {
+    // debugger;
+    if (values[config.equals] !== value) {
+      const { label } = config;
+      const template = '${label} must be equal to ${value}';
+      return getMessage({ name, label, value: config.equals, template });
+    }
+  }
+};

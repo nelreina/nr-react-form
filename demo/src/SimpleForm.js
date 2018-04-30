@@ -10,7 +10,7 @@ const fields = {
   twitter: { type: 'twitter', label: 'Twitter Handle' }
 };
 
-const LoginForm = new Form('SimpleForm', fields)
+const SimpleForm = new Form('SimpleForm', fields)
   .button('Simple', 'btn btn-dark btn-block')
   .getComponent();
-export default LoginForm;
+export default SimpleForm;

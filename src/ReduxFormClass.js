@@ -7,7 +7,8 @@ import {
   checkRequiredFields,
   checkMinLength,
   checkMaxLength,
-  checkType
+  checkType,
+  checkIsEqual
 } from './validations';
 
 class ReduxFormClass {
@@ -31,11 +32,12 @@ class ReduxFormClass {
       const max = checkMaxLength(values[name], config, name);
       const min = checkMinLength(values[name], config, name);
       const type = checkType(values[name], config, name);
+      const eql = checkIsEqual(values, values[name], config, name);
       let cus;
       if (this._customValidator) {
         cus = this._customValidator(values[name], config, name);
       }
-      errors = assign({}, errors, cus, max, min, type, req);
+      errors = assign({}, errors, cus, max, min, type, eql, req);
     });
     return errors;
   };

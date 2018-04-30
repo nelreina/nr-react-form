@@ -6,6 +6,7 @@ import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 
 import AdvancedForm from './AdvancedForm';
 import SimpleForm from './SimpleForm';
+import SignUpForm from './SignUpForm';
 import { LoginFormEmail } from '../../src';
 
 import rootReducer from './rootReducer';
@@ -30,13 +31,16 @@ class Demo extends Component {
                 <h3>Redux Form Demo</h3>
                 <div className="nav nav-pills">
                   <NavLink to="/simple" className="nav-link">
-                    Simple Form
+                    Simple
                   </NavLink>
                   <NavLink to="/advanced-form" className="nav-link">
-                    Advanced Form
+                    Advanced
                   </NavLink>
                   <NavLink to="/login-form-email" className="nav-link">
-                    Login Form Email
+                    Login Email
+                  </NavLink>
+                  <NavLink to="/sign-up-form" className="nav-link">
+                    Sign Up
                   </NavLink>
                 </div>
                 <hr />
@@ -52,6 +56,10 @@ class Demo extends Component {
                   <Route
                     path="/login-form-email"
                     render={props => <LoginFormEmail action={this.action} />}
+                  />
+                  <Route
+                    path="/sign-up-form"
+                    render={props => <SignUpForm action={this.action} />}
                   />
                   <Route
                     render={() => <h4>Select one of the Forms above</h4>}
