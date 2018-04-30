@@ -26,16 +26,16 @@ class ReduxFormClass {
     let errors = {};
     each(this._fields, (config, key) => {
       const name = isString(key) ? key : config.name;
+      config['name'] = name;
       const req = checkRequiredFields(values[name], config, name);
       const max = checkMaxLength(values[name], config, name);
       const min = checkMinLength(values[name], config, name);
       const type = checkType(values[name], config, name);
       let cus;
       if (this._customValidator) {
-        const cus = this._customValidator(values[name], config, name);
+        cus = this._customValidator(values[name], config, name);
       }
-      console.info('validate', cus);
-      errors = assign({}, errors, max, min, type, req, cus);
+      errors = assign({}, errors, cus, max, min, type, req);
     });
     return errors;
   };
