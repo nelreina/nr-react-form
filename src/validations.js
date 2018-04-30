@@ -37,7 +37,11 @@ export const checkType = (value, config, name) => {
           : undefined;
       case 'twitter':
         return !S(value).startsWith('@')
-          ? getMessage({ name, label, template: 'Not valid twitter handle' })
+          ? getMessage({
+              name,
+              label,
+              template: 'Not valid twitter handle. Name must start with a @'
+            })
           : undefined;
       default:
         return undefined;
@@ -45,7 +49,7 @@ export const checkType = (value, config, name) => {
   }
 };
 export const checkMinLength = (value, config, name) => {
-  if (config.minLength) {
+  if (config.minLength && value) {
     const min = config.minLength;
     if (!isLength(value.toString() || '', { min })) {
       const { label } = config;
@@ -57,16 +61,12 @@ export const checkMinLength = (value, config, name) => {
   }
 };
 export const checkMaxLength = (value, config, name) => {
-  if (config.maxLength) {
-    if (value) {
-      const max = config.maxLength;
-      if (!isLength(value.toString(), { max })) {
-        const { label } = config;
-        const template = '${label} must be ${value} characters or less';
-        return getMessage({ name, label, value: max, template });
-      }
-    } else {
-      return undefined;
+  if (config.maxLength && value) {
+    const max = config.maxLength;
+    if (!isLength(value.toString(), { max })) {
+      const { label } = config;
+      const template = '${label} must be ${value} characters or less';
+      return getMessage({ name, label, value: max, template });
     }
   }
 };
