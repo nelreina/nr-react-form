@@ -28,21 +28,21 @@ class Demo extends Component {
             <div className="app">
               <div className="forms">
                 <h3>Redux Form Demo</h3>
-                <div className="nav">
-                  <NavLink to="/" className="nav-link">
-                    SimpleForm
+                <div className="nav nav-pills">
+                  <NavLink to="/simple" className="nav-link">
+                    Simple Form
                   </NavLink>
                   <NavLink to="/advanced-form" className="nav-link">
-                    AdvancedForm
+                    Advanced Form
                   </NavLink>
                   <NavLink to="/login-form-email" className="nav-link">
-                    LoginFormEmail
+                    Login Form Email
                   </NavLink>
                 </div>
+                <hr />
                 <Switch>
                   <Route
-                    path="/"
-                    exact
+                    path="/simple"
                     render={props => <SimpleForm action={this.action} />}
                   />
                   <Route
@@ -52,6 +52,9 @@ class Demo extends Component {
                   <Route
                     path="/login-form-email"
                     render={props => <LoginFormEmail action={this.action} />}
+                  />
+                  <Route
+                    render={() => <h4>Select one of the Forms above</h4>}
                   />
                 </Switch>
               </div>
