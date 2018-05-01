@@ -1,9 +1,32 @@
-.app {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+* {
+  zoom: 97.5%;
 }
-.forms {
-  padding-right: 2em;
-  height: 90vh;
+
+.code {
+  max-height: 500px;
+  height: 85vh;
   overflow: scroll;
+}
+.code,
+.form-state {
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 992px) {
+  .form-state {
+    height: 85vh;
+    overflow: scroll;
+  }
+  .app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+  }
+  .divider {
+    display: none;
+  }
+}
+@media screen and (min-width: 1200px) {
 }

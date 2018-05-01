@@ -15,6 +15,6 @@ const init = {
 };
 
 const SignUpForm = new Form('SignUpForm', fields, init)
-  .button('Simple', 'btn btn-dark btn-block')
+  .button('Sign Up', 'btn btn-dark btn-block')
   .getComponent();
 export default SignUpForm;

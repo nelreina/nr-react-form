@@ -51,7 +51,7 @@ const validate = (value, config, name) => {
   return assign({}, checkMinVal, checkAdult);
 };
 
-const LoginForm = new Form('AdvancedForm', fields, initValues, validate)
+const AdvancedForm = new Form('AdvancedForm', fields, initValues, validate)
   .button('Register', 'btn btn-dark btn-block')
   .getComponent();
-export default LoginForm;
+export default AdvancedForm;
