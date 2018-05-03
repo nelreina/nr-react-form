@@ -12,7 +12,7 @@ const getInputType = (type, props) => {
   }
 };
 
-let BootstrapField = props => {
+let RenderField = props => {
   const { type, meta, label } = props;
   return (
     <div className="form-group">
@@ -23,14 +23,14 @@ let BootstrapField = props => {
   );
 };
 
-BootstrapField.propTypes = {
+RenderField.propTypes = {
   type: pt.string,
   meta: pt.any,
   label: pt.string
 };
 
-BootstrapField.defaultProps = {
+RenderField.defaultProps = {
   type: 'text'
 };
 
-export default BootstrapField;
+export default RenderField;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import BootstrapField from './BootstrapField';
+import RenderField from './RenderField';
 
 const FieldItem = ({ item: field, name }) => (
-  <Field name={name} {...field} component={BootstrapField} />
+  <Field name={name} {...field} component={RenderField} />
 );
 
 export default FieldItem;
