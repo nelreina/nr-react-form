@@ -2,8 +2,7 @@ import isEmail from 'validator/lib/isEmail';
 import isLength from 'validator/lib/isLength';
 import S from 'string';
 S.extendPrototype();
-
-const humanize = text => text.humanize().titleCase();
+import { humanize } from './util';
 
 export const getMessage = ({ name, label, value, template }) => {
   const showLabel = template.contains('${label}');
