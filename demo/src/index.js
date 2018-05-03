@@ -42,6 +42,9 @@ class Demo extends Component {
                   <NavLink to="/advanced-form" className="nav-link">
                     Advanced
                   </NavLink>
+                  <NavLink to="/field-array-form" className="nav-link">
+                    Field Array
+                  </NavLink>
                 </div>
                 <hr />
                 <DisplayForm action={this.action} />
