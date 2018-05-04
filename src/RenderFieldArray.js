@@ -13,9 +13,9 @@ grid-template-columns: repeat(${col}, 1fr);
 `;
 
 const RenderFieldArray = props => {
-  const { nrs, fields, parent, legend } = props;
+  const { arrayFields, fields, parent, legend } = props;
   const facss = css`
-    ${getFieldArrayCss(keys(nrs).length)};
+    ${getFieldArrayCss(keys(arrayFields).length)};
   `;
   return (
     <div
@@ -38,7 +38,7 @@ const RenderFieldArray = props => {
                 <List
                   {...props}
                   of={FieldItem}
-                  iterator={nrs}
+                  iterator={arrayFields}
                   keyname="name"
                   fieldname={fieldname}
                 />

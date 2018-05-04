@@ -7,7 +7,7 @@ const fields = {
   member: {
     type: 'field-array',
     legend: 'Members',
-    nrs: {
+    arrayFields: {
       firstName: {},
       lastName: {},
       age: {}
