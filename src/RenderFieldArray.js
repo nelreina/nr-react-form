@@ -6,19 +6,23 @@ import { getInputType } from './util';
 
 const RenderFieldArray = props => {
   const { nrs, fields } = props;
-  console.info(nrs);
   return (
     <div>
       {fields.map((fieldname, idx) => {
         return (
-          <div>
-            <List
-              of={FieldItem}
-              iterator={nrs}
-              keyname="name"
-              fieldname={fieldname}
-              {...props}
-            />
+          <div className="field-row" key={idx}>
+            <div className="field-array">
+              <List
+                {...props}
+                of={FieldItem}
+                iterator={nrs}
+                keyname="name"
+                fieldname={fieldname}
+              />
+            </div>
+            <button type="button" onClick={() => fields.remove(idx)}>
+              -
+            </button>
           </div>
         );
       })}

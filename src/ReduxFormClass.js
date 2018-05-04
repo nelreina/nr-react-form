@@ -62,8 +62,8 @@ class ReduxFormClass {
 
     Form = reduxForm({
       form: this._formName,
-      initialValues: this._initialValues
-      // validate: this.validate
+      initialValues: this._initialValues,
+      validate: this.validate
     })(Form);
 
     return Form;
