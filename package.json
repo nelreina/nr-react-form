@@ -20,6 +20,7 @@
     "publish": "nwb build-demo && gh-pages -d demo/dist"
   },
   "dependencies": {
+    "emotion": "^9.1.2",
     "lodash": "^4.17.10",
     "nr-react-list": "^1.2.1",
     "prop-types": "^15.6.1",

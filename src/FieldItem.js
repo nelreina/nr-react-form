@@ -14,8 +14,9 @@ const FieldItem = props => {
       item = (
         <FieldArray
           {...props}
-          name={name}
           {...field}
+          name={name}
+          parent={name}
           component={RenderFieldArray}
         />
       );
