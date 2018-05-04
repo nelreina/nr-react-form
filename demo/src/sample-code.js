@@ -128,16 +128,25 @@ export const fieldArray = `
 import { ReduxFormClass as Form } from 'nr-react-form';
 
 const isRequired = true;
-
 const fields = {
   clubName: { isRequired, minLength: 3, maxLength: 10 },
   member: {
     type: 'field-array',
-    fields: {
-      firstName: { isRequired },
-      lastName: { isRequired }
+    legend: 'Members',
+    nrs: {
+      firstName: {},
+      lastName: {},
+      age: {}
     }
   }
+};
+
+const init = {
+  clubName: 'Chess Club',
+  member: [
+    { firstName: 'Marco', lastName: 'Stravanov', age: '44' },
+    { firstName: 'Sue', lastName: 'Allen', age: '31' }
+  ]
 };
 
 const FieldArrayForm = new Form('FieldArrayForm', fields)

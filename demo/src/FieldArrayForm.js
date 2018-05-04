@@ -10,35 +10,24 @@ const fields = {
     nrs: {
       firstName: {},
       lastName: {},
-      age: { type: 'number' }
+      age: {}
     }
   }
 };
 
 const init = {
-  clubName: 'Domino',
+  clubName: 'Chess Club',
   member: [
     {
-      firstName: 'Nelson',
-      lastName: 'Reina',
+      firstName: 'Marco',
+      lastName: 'Stravanov',
       age: '44'
     },
     {
-      firstName: 'Alan',
-      lastName: 'Boye',
+      firstName: 'Sue',
+      lastName: 'Allen',
       age: '31'
-    },
-    {
-      firstName: 'Romeo',
-      lastName: 'Mans',
-      age: '30'
-    },
-    {
-      firstName: 'Patricia',
-      lastName: 'Lake',
-      age: '46'
-    },
-    null
+    }
   ]
 };
 
