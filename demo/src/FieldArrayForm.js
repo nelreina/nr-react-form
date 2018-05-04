@@ -6,9 +6,9 @@ const fields = {
   clubName: { isRequired, minLength: 3, maxLength: 10 },
   member: {
     type: 'field-array',
-    fields: {
-      firstName: { isRequired },
-      lastName: { isRequired }
+    nrs: {
+      firstName: {},
+      lastName: {}
     }
   }
 };

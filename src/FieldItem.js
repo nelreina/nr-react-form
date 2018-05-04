@@ -4,25 +4,23 @@ import RenderField from './RenderField';
 import RenderFieldArray from './RenderFieldArray';
 
 const FieldItem = props => {
-  const { item: field, name, fieldname } = props;
-  const inputName = fieldname ? `${fieldname}.${name}` : name;
-  console.info('inputName', inputName);
+  const { item: field, name } = props;
+  const { nrs } = field;
   let item;
   switch (field.type) {
     case 'field-array':
       item = (
         <FieldArray
+          {...props}
           name={name}
           {...field}
           component={RenderFieldArray}
-          fieldname={name}
-          {...props}
         />
       );
       break;
 
     default:
-      item = <Field name={inputName} {...field} component={RenderField} />;
+      item = <Field name={name} {...field} component={RenderField} />;
       break;
   }
   return item;

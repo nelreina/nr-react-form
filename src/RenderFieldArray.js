@@ -5,9 +5,28 @@ import FieldItem from './FieldItem';
 import { getInputType } from './util';
 
 const RenderFieldArray = props => {
-  const { fields } = props;
-  return <List of={FieldItem} iterator={fields} keyname="name" {...props} />;
-  // return <pre>{JSON.stringify(props, null, 2)}</pre>;
+  const { nrs, fields } = props;
+  console.info(nrs);
+  return (
+    <div>
+      {fields.map((fieldname, idx) => {
+        return (
+          <div>
+            <List
+              of={FieldItem}
+              iterator={nrs}
+              keyname="name"
+              fieldname={fieldname}
+              {...props}
+            />
+          </div>
+        );
+      })}
+      <button type="button" onClick={() => fields.push()}>
+        +
+      </button>
+    </div>
+  );
 };
 
 export default RenderFieldArray;
