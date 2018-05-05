@@ -1,6 +1,6 @@
 {
   "name": "nr-react-form",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "nr-react-form React component",
   "main": "lib/index.js",
   "module": "es/index.js",
