@@ -8,6 +8,7 @@ import AdvancedForm from './AdvancedForm';
 import SimpleForm from './SimpleForm';
 import SignUpForm from './SignUpForm';
 import FieldArrayForm from './FieldArrayForm';
+import AllInputTypeForm from './AllInputTypeForm';
 import { LoginFormEmail } from '../../src';
 
 const Form = ({ comp: Component, code, action }) => (
@@ -39,6 +40,12 @@ const DisplayForm = ({ action }) => (
     <Route
       path="/sign-up-form"
       render={props => <Form comp={SignUpForm} action={action} code={signup} />}
+    />
+    <Route
+      path="/all-input-type"
+      render={props => (
+        <Form comp={AllInputTypeForm} action={action} code={'all'} />
+      )}
     />
     <Route
       path="/field-array-form"

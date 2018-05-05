@@ -3,7 +3,6 @@ import List from 'nr-react-list';
 import { css } from 'emotion';
 import { keys } from 'lodash';
 import FieldItem from './FieldItem';
-import { getInputType } from './util';
 
 const getFieldArrayCss = col => `
 flex-basis: 90%;

@@ -45,6 +45,9 @@ class Demo extends Component {
                   <NavLink to="/field-array-form" className="nav-link">
                     Field Array
                   </NavLink>
+                  <NavLink to="/all-input-type" className="nav-link">
+                    Supported Input Types
+                  </NavLink>
                 </div>
                 <hr />
                 <DisplayForm action={this.action} />
