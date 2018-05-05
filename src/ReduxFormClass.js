@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form';
 import List from 'nr-react-list';
 import FieldItem from './FieldItem';
 import { each, assign, isString } from 'lodash';
+import { css } from 'emotion';
 import {
   checkRequiredFields,
   checkMinLength,
@@ -10,7 +11,9 @@ import {
   checkType,
   checkIsEqual
 } from './validations';
-
+const divInput = css`
+  margin-bottom: 1em;
+`;
 class ReduxFormClass {
   constructor(name, fields, initialValues, customValidator) {
     this._formName = name;
@@ -47,12 +50,14 @@ class ReduxFormClass {
 
       return (
         <form onSubmit={handleSubmit(action)}>
-          <List
-            of={FieldItem}
-            iterator={this._fields}
-            keyname="name"
-            formname={this._formName}
-          />
+          <div className={divInput}>
+            <List
+              of={FieldItem}
+              iterator={this._fields}
+              keyname="name"
+              formname={this._formName}
+            />
+          </div>
           <button className={this._buttonClass} type="submit">
             {this._buttonText || 'Submit'}
           </button>
