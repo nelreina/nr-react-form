@@ -1,4 +1,5 @@
-export const simple = `
+export default {
+  SimpleForm: `
 // SimpleForm.js
 import { ReduxFormClass as Form } from 'nr-react-form';
 
@@ -23,18 +24,18 @@ import SimpleForm from './SimpleForm';
 render(){
     return <SimpleForm action={this.props.action} />
 }
-`;
+`,
 
-export const login = `
+  loginFormEmail: `
 // index.js
 import { LoginFormEmail } from 'nr-react-form';
 
 render(){
     return <LoginFormEmail action={this.props.action} />
 }
-`;
+`,
 
-export const signup = `// SignUpForm.js
+  SignUpForm: `// SignUpForm.js
 import { ReduxFormClass as Form } from 'nr-react-form';
 
 const isRequired = true;
@@ -63,8 +64,8 @@ import SignUpForm from './SignUpForm';
 render(){
     return <SignUpForm action={this.props.action} />
 }
-`;
-export const advanced = `// AdvancedForm.js
+`,
+  AdvancedForm: `// AdvancedForm.js
 import { ReduxFormClass as Form, validations } from 'nr-react-form';
 import { assign } from 'lodash';
 import S from 'string';
@@ -123,8 +124,8 @@ const AdvancedForm = new Form('AdvancedForm', fields, initValues, validate)
   .button('Register', 'btn btn-dark btn-block')
   .getComponent();
 export default AdvancedForm;
-`;
-export const fieldArray = `
+`,
+  FieldArrayForm: `
 import { ReduxFormClass as Form } from 'nr-react-form';
 
 const isRequired = true;
@@ -153,4 +154,25 @@ const FieldArrayForm = new Form('FieldArrayForm', fields, init)
   .button(null, 'btn btn-dark btn-block')
   .getComponent();
 export default FieldArrayForm;
-`;
+`,
+  SupportedInputType: `
+import { ReduxFormClass as Form } from 'nr-react-form';
+
+const isRequired = true;
+const options = [{ value: 1, label: 'One' }, { value: 2, label: 'Two' }];
+const fields = {
+  textInput: { label: 'Text Input' },
+  emailInput: { type: 'email', label: 'Email Input' },
+  rangeInput: { type: 'range', label: 'Range Input' },
+  selectInput: { type: 'select', label: 'Select Input', options },
+  textareaInput: { type: 'textarea', label: 'TextArea Input' },
+  checkboxInput: { type: 'checkbox', label: 'Check Box' },
+  radioInput: { type: 'radio', label: 'Radio Input', options }
+};
+
+const SupportedInputType = new Form('SupportedInputType', fields)
+  .button(null, 'btn btn-dark btn-block')
+  .getComponent();
+export default SupportedInputType;
+`
+};

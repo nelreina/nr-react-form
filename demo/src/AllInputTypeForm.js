@@ -13,6 +13,6 @@ const fields = {
 };
 
 const SupportedInputType = new Form('SupportedInputType', fields)
-  .button('Simple', 'btn btn-dark btn-block')
+  .button(null, 'btn btn-dark btn-block')
   .getComponent();
 export default SupportedInputType;

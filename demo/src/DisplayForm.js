@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { simple, login, signup, advanced, fieldArray } from './sample-code';
+import code from './sample-code';
 import Highlight from 'react-highlight';
 
 import AdvancedForm from './AdvancedForm';
@@ -12,13 +12,13 @@ import AllInputTypeForm from './AllInputTypeForm';
 import FormState from './FormState';
 import { LoginFormEmail } from '../../src';
 
-const Form = ({ comp: Component, code, action, name }) => (
+const Form = ({ comp: Component, action, name }) => (
   <div className="form">
     <Component action={action} />
     <hr className="divider" />
-    <Highlight className="code">{code}</Highlight>
-    <hr className="divider" />
     <FormState name={name} />
+    <hr className="divider" />
+    <Highlight className="code">{code[name]}</Highlight>
   </div>
 );
 
@@ -27,45 +27,25 @@ const DisplayForm = ({ action }) => (
     <Route
       path="/simple"
       render={props => (
-        <Form
-          comp={SimpleForm}
-          action={action}
-          code={simple}
-          name="SimpleForm"
-        />
+        <Form comp={SimpleForm} action={action} name="SimpleForm" />
       )}
     />
     <Route
       path="/advanced-form"
       render={props => (
-        <Form
-          comp={AdvancedForm}
-          action={action}
-          code={advanced}
-          name="AdvancedForm"
-        />
+        <Form comp={AdvancedForm} action={action} name="AdvancedForm" />
       )}
     />
     <Route
       path="/login-form-email"
       render={props => (
-        <Form
-          comp={LoginFormEmail}
-          action={action}
-          code={login}
-          name="LoginFormEmail"
-        />
+        <Form comp={LoginFormEmail} action={action} name="loginFormEmail" />
       )}
     />
     <Route
       path="/sign-up-form"
       render={props => (
-        <Form
-          comp={SignUpForm}
-          action={action}
-          code={signup}
-          name="SignUpForm"
-        />
+        <Form comp={SignUpForm} action={action} name="SignUpForm" />
       )}
     />
     <Route
@@ -74,7 +54,6 @@ const DisplayForm = ({ action }) => (
         <Form
           comp={AllInputTypeForm}
           action={action}
-          code={'all'}
           name="SupportedInputType"
         />
       )}
@@ -82,12 +61,7 @@ const DisplayForm = ({ action }) => (
     <Route
       path="/field-array-form"
       render={props => (
-        <Form
-          comp={FieldArrayForm}
-          action={action}
-          code={fieldArray}
-          name="FieldArrayForm"
-        />
+        <Form comp={FieldArrayForm} action={action} name="FieldArrayForm" />
       )}
     />
     <Route render={() => <h4>Select one of the Forms above</h4>} />
