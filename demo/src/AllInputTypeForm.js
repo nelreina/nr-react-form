@@ -1,21 +1,18 @@
 import { ReduxFormClass as Form } from '../../src';
 
 const isRequired = true;
-
+const options = [{ value: 1, label: 'One' }, { value: 2, label: 'Two' }];
 const fields = {
   textInput: { label: 'Text Input' },
-  emailInput: { label: 'Email Input', type: 'email' },
-  rangeInput: { label: 'Range Input', type: 'range' },
-  selectInput: {
-    label: 'Select Input',
-    type: 'select',
-    options: [{ value: 1, label: 'One' }, { value: 2, label: 'Two' }]
-  },
-  textareaInput: { label: 'TextArea Input', type: 'textarea' },
-  checkboxInput: { label: 'Check Box', type: 'checkbox' }
+  emailInput: { type: 'email', label: 'Email Input' },
+  rangeInput: { type: 'range', label: 'Range Input' },
+  selectInput: { type: 'select', label: 'Select Input', options },
+  textareaInput: { type: 'textarea', label: 'TextArea Input' },
+  checkboxInput: { type: 'checkbox', label: 'Check Box' },
+  radioInput: { type: 'radio', label: 'Radio Input', options }
 };
 
-const AllInputType = new Form('AllInputType', fields)
+const SupportedInputType = new Form('SupportedInputType', fields)
   .button('Simple', 'btn btn-dark btn-block')
   .getComponent();
-export default AllInputType;
+export default SupportedInputType;

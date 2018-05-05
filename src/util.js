@@ -5,6 +5,7 @@ import FieldText from './Bootstrap/FieldText';
 import FieldTextArea from './Bootstrap/FieldTextArea';
 import FieldSelect from './Bootstrap/FieldSelect';
 import FieldCheck from './Bootstrap/FieldCheck';
+import FieldRadio from './Bootstrap/FieldRadio';
 
 S.extendPrototype();
 
@@ -15,8 +16,9 @@ export const getInputType = (type, props) => {
     case 'textarea':
       return <FieldTextArea {...props} />;
     case 'checkbox':
-    case 'radio':
       return <FieldCheck type={type} {...props} />;
+    case 'radio':
+      return <FieldRadio type={type} {...props} />;
     default:
       return <FieldText type={type} {...props} />;
   }
