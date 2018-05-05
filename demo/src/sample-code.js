@@ -149,7 +149,7 @@ const init = {
   ]
 };
 
-const FieldArrayForm = new Form('FieldArrayForm', fields)
+const FieldArrayForm = new Form('FieldArrayForm', fields, init)
   .button(null, 'btn btn-dark btn-block')
   .getComponent();
 export default FieldArrayForm;

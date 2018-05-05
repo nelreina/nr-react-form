@@ -23,40 +23,32 @@ class Demo extends Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <div className="container ">
+          <div className="container-fluid">
             <h1>nr-react-form Demo</h1>
             <hr />
             <div className="app">
-              <div className="forms">
-                <h3>Redux Form Demo</h3>
-                <div className="nav nav-pills">
-                  <NavLink to="/simple" className="nav-link">
-                    Simple
-                  </NavLink>
-                  <NavLink to="/login-form-email" className="nav-link">
-                    Login Email
-                  </NavLink>
-                  <NavLink to="/sign-up-form" className="nav-link">
-                    Sign Up
-                  </NavLink>
-                  <NavLink to="/advanced-form" className="nav-link">
-                    Advanced
-                  </NavLink>
-                  <NavLink to="/field-array-form" className="nav-link">
-                    Field Array
-                  </NavLink>
-                  <NavLink to="/all-input-type" className="nav-link">
-                    Supported Input Types
-                  </NavLink>
-                </div>
-                <hr />
-                <DisplayForm action={this.action} />
+              <div className="nav nav-pills">
+                <NavLink to="/simple" className="nav-link">
+                  Simple
+                </NavLink>
+                <NavLink to="/login-form-email" className="nav-link">
+                  Login Email
+                </NavLink>
+                <NavLink to="/sign-up-form" className="nav-link">
+                  Sign Up
+                </NavLink>
+                <NavLink to="/advanced-form" className="nav-link">
+                  Advanced
+                </NavLink>
+                <NavLink to="/field-array-form" className="nav-link">
+                  Field Array
+                </NavLink>
+                <NavLink to="/all-input-type" className="nav-link">
+                  Supported Input Types
+                </NavLink>
               </div>
-              <hr className="divider" />
-              <div className="result">
-                <h4>Form State </h4>
-                <FormState />
-              </div>
+              <hr />
+              <DisplayForm action={this.action} />
             </div>
           </div>
         </BrowserRouter>

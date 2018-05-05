@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Highlight from 'react-highlight';
-const SubmitResult = ({ form }) => {
+const SubmitResult = ({ form, name }) => {
+  const values = form[name] ? form[name]['values'] : {};
+  const validationErrors = form[name] && form[name]['syncErrors'];
   return (
-    <Highlight className="typescript form-state">
-      {JSON.stringify(form, null, 2)}
-    </Highlight>
+    <div className="result">
+      <Highlight className="typescript form-state">
+        {JSON.stringify({ values }, null, 2)}
+      </Highlight>
+    </div>
   );
 };
 
