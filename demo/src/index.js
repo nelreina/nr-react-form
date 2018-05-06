@@ -25,29 +25,35 @@ class Demo extends Component {
         <BrowserRouter>
           <div className="container-fluid">
             <h1>nr-react-form Demo</h1>
+            <p className="text-center">
+              All input types of nr-react-form library is styled with{' '}
+              <a target="_blank" href="http://getbootstrap.com">
+                Bootstrap V4
+              </a>
+            </p>
             <hr />
             <div className="app">
-              <div className="nav nav-pills">
-                <NavLink to="/simple" className="nav-link">
+              <div className="nav nav-pills nav-fill">
+                <NavLink to="/simple" className="nav-item nav-link">
                   Simple
                 </NavLink>
-                <NavLink to="/login-form-email" className="nav-link">
+                <NavLink to="/login-form-email" className="nav-item nav-link">
                   Login Email
                 </NavLink>
-                <NavLink to="/sign-up-form" className="nav-link">
+                <NavLink to="/sign-up-form" className="nav-item nav-link">
                   Sign Up
                 </NavLink>
-                <NavLink to="/advanced-form" className="nav-link">
+                <NavLink to="/advanced-form" className="nav-item nav-link">
                   Advanced
                 </NavLink>
-                <NavLink to="/field-array-form" className="nav-link">
+                <NavLink to="/field-array-form" className="nav-item nav-link">
                   Field Array
                 </NavLink>
-                <NavLink to="/all-input-type" className="nav-link">
+                <NavLink to="/all-input-type" className="nav-item nav-link">
                   Supported Input Types
                 </NavLink>
               </div>
-              <hr />
+              {/* <hr /> */}
               <DisplayForm action={this.action} />
             </div>
           </div>

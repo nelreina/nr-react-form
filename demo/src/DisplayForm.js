@@ -14,11 +14,13 @@ import { LoginFormEmail } from '../../src';
 
 const Form = ({ comp: Component, action, name }) => (
   <div className="form">
-    <Component action={action} />
+    <div>
+      <Component action={action} />
+    </div>
     <hr className="divider" />
     <FormState name={name} />
     <hr className="divider" />
-    <Highlight className="code">{code[name]}</Highlight>
+    <Highlight className="javascript code">{code[name]}</Highlight>
   </div>
 );
 
