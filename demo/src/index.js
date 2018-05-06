@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { createStoreDOM } from 'nelreina-web-utils';
 import { Provider } from 'react-redux';
 import { BrowserRouter, NavLink } from 'react-router-dom';
 import Highlight from 'react-highlight';
+import store from './store';
 
-import DisplayForm from './DisplayForm';
 import FormState from './FormState';
+import DisplayForm from './DisplayForm';
 
-import rootReducer from './rootReducer';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../node_modules/highlight.js/styles/dracula.css';
 import './app.css';
 
-const store = createStoreDOM(rootReducer, {});
 class Demo extends Component {
   state = { values: {} };
   action = values => {
