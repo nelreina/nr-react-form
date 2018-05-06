@@ -4,17 +4,26 @@ import { css } from 'emotion';
 import { keys } from 'lodash';
 import FieldItem from './FieldItem';
 
-const getFieldArrayCss = col => `
+const getCssFieldInput = col => `
 flex-basis: 90%;
 display: grid;
 grid-gap: 1em;
 grid-template-columns: repeat(${col}, 1fr);
 `;
 
+const cssFieldRow = css`
+  display: flex;
+  justify-content: space-between;
+`;
+const cssFieldRowButton = css`
+  flex-basis: 5%;
+  align-self: flex-start;
+`;
+
 const RenderFieldArray = props => {
   const { arrayFields, fields, parent, legend } = props;
-  const facss = css`
-    ${getFieldArrayCss(keys(arrayFields).length)};
+  const cssFieldInput = css`
+    ${getCssFieldInput(keys(arrayFields).length)};
   `;
   return (
     <div
@@ -32,8 +41,8 @@ const RenderFieldArray = props => {
       >
         {fields.map((fieldname, idx) => {
           return (
-            <div className="field-row" key={idx}>
-              <div className={facss}>
+            <div className={cssFieldRow} key={idx}>
+              <div className={cssFieldInput}>
                 <List
                   {...props}
                   of={FieldItem}
@@ -43,7 +52,7 @@ const RenderFieldArray = props => {
                 />
               </div>
               <button
-                className="btn btn-danger"
+                className={[cssFieldRowButton, 'btn', 'btn-danger'].join(' ')}
                 onClick={() => fields.remove(idx)}
               >
                 -

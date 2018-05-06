@@ -15,14 +15,6 @@ form {
   max-width: 1400px;
   margin: 0 auto;
 }
-.field-row {
-  display: flex;
-  justify-content: space-between;
-}
-.field-row > button {
-  flex-basis: 5%;
-  align-self: flex-start;
-}
 
 .code,
 .form-state {
