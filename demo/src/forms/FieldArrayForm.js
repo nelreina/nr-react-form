@@ -1,5 +1,5 @@
-import { ReduxFormClass as Form } from '../../src';
-import { store } from './store';
+import { ReduxFormClass as Form } from '../../../src';
+import { store } from '../store';
 import { get } from 'lodash';
 const isRequired = true;
 

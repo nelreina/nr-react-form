@@ -50,6 +50,9 @@ class Demo extends Component {
                 <NavLink to="/all-input-type" className="nav-item nav-link">
                   Supported Input Types
                 </NavLink>
+                <NavLink to="/select-form" className="nav-item nav-link">
+                  Select Options
+                </NavLink>
               </div>
               {/* <hr /> */}
               <DisplayForm action={this.action} />

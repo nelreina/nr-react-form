@@ -4,11 +4,11 @@ import { Route, Switch } from 'react-router-dom';
 import code from './sample-code';
 import Highlight from 'react-highlight';
 
-import AdvancedForm from './AdvancedForm';
-import SimpleForm from './SimpleForm';
-import SignUpForm from './SignUpForm';
-import FieldArrayForm from './FieldArrayForm';
-import AllInputTypeForm from './AllInputTypeForm';
+import AdvancedForm from './forms/AdvancedForm';
+import SimpleForm from './forms/SimpleForm';
+import SignUpForm from './forms/SignUpForm';
+import FieldArrayForm from './forms/FieldArrayForm';
+import AllInputTypeForm from './forms/AllInputTypeForm';
 import FormState from './FormState';
 import { LoginFormEmail } from '../../src';
 

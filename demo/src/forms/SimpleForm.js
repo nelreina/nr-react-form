@@ -1,4 +1,4 @@
-import { ReduxFormClass as Form } from '../../src';
+import { ReduxFormClass as Form } from '../../../src';
 
 const isRequired = true;
 

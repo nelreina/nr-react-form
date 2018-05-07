@@ -1,4 +1,4 @@
-import { ReduxFormClass as Form, validations } from '../../src';
+import { ReduxFormClass as Form, validations } from '../../../src';
 import { assign } from 'lodash';
 import S from 'string';
 
