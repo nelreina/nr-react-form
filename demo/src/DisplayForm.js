@@ -9,6 +9,7 @@ import SimpleForm from './forms/SimpleForm';
 import SignUpForm from './forms/SignUpForm';
 import FieldArrayForm from './forms/FieldArrayForm';
 import AllInputTypeForm from './forms/AllInputTypeForm';
+import SelectOptionsForm from './forms/SelectOptionsForm';
 import FormState from './FormState';
 import { LoginFormEmail } from '../../src';
 
@@ -20,7 +21,7 @@ const Form = ({ comp: Component, action, name }) => (
     <hr className="divider" />
     <FormState name={name} />
     <hr className="divider" />
-    <Highlight className="javascript code">{code[name]}</Highlight>
+    <Highlight className="javascript code">{code[name] || ''}</Highlight>
   </div>
 );
 
@@ -30,6 +31,16 @@ const DisplayForm = ({ action }) => (
       path="/simple"
       render={props => (
         <Form comp={SimpleForm} action={action} name="SimpleForm" />
+      )}
+    />
+    <Route
+      path="/select-form"
+      render={props => (
+        <Form
+          comp={SelectOptionsForm}
+          action={action}
+          name="SelectOptionsForm"
+        />
       )}
     />
     <Route
