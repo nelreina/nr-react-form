@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Highlight from 'react-highlight';
+import { get } from 'lodash';
+
 const SubmitResult = ({ form, name }) => {
-  const values = form[name] ? form[name]['values'] || {} : {};
+  const values = get(form, `${name}.values`, {});
   const validationErrors = form[name] && form[name]['syncErrors'];
   return (
     <div className="result">

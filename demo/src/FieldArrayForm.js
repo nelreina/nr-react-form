@@ -1,5 +1,6 @@
 import { ReduxFormClass as Form } from '../../src';
 import { store } from './store';
+import { get } from 'lodash';
 const isRequired = true;
 
 const fields = {
@@ -14,7 +15,8 @@ const fields = {
     }
   }
 };
-const selectClub = state => state.club.data;
+
+const selectClub = state => get(state, 'club.data');
 const init = store ? selectClub(store.getState()) : {};
 
 const FieldArrayForm = new Form('FieldArrayForm', fields, init)
