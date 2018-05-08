@@ -16,14 +16,14 @@ const fields = {
     options: static2Options,
     info: `Static Array of Objects [
       { value: 432, label: 'Bose' },
-      { value: 433, label: 'JBL' }
+      ...
     ]`
   },
   os: {
     type: 'select',
     reduxstate: 'os.data.types',
     label: 'Operating System',
-    info: `Provide a redux store state with the options e.g.: state: 'os.types'`,
+    info: `Options from a redux store by prividing {reduxstate: 'os.data.types'}`,
     resetOnChange: 'version'
   },
   version: {

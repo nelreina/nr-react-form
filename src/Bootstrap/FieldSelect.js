@@ -61,9 +61,6 @@ const FieldSelect = ({
         <List of={Options} iterator={selectOptions} />
       </select>
       {info && <small className="form-text text-muted">{info}</small>}
-      {resetOnChange && (
-        <pre>{JSON.stringify(typeof fieldChange, null, 2)}</pre>
-      )}
 
       <div className="invalid-feedback">{meta.error}</div>
     </div>
