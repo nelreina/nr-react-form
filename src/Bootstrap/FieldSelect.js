@@ -1,15 +1,19 @@
 import React from 'react';
 import List from 'nr-react-list';
 import { connect } from 'react-redux';
-import { get } from 'lodash';
+import { get, isArray } from 'lodash';
+import { css } from 'emotion';
 import { change as fieldChange } from 'redux-form';
 
 import getInputClass from './get-input-class';
 import Options from './FieldSelectOption';
+
+const hidden = css``;
+
 const FieldSelect = ({
   options,
   reduxstate,
-  optionKey,
+  optionsKey,
   stateOptions,
   form,
   formname,
@@ -22,12 +26,12 @@ const FieldSelect = ({
 }) => {
   const { name, onChange } = input;
   let selectOptions;
-  if (optionKey) {
+  if (optionsKey) {
+    const key = get(form, `${formname}.values.${optionsKey}`, '');
     if (options) {
-      selectOptions = options[optionKey];
+      selectOptions = options[key];
     } else if (reduxstate) {
-      const key = get(form, `${formname}.values.${optionKey}`, '');
-      selectOptions = get(stateOptions, `${reduxstate}.${key}`, {});
+      selectOptions = get(stateOptions, `${reduxstate}.${key}`, []);
       // return reduxstate;
     } else {
       return 'No options has been given';
@@ -45,15 +49,21 @@ const FieldSelect = ({
   const selectChange = evt => {
     const { value } = evt.target;
     if (resetOnChange) {
-      fieldChange(formname, resetOnChange, '');
+      if (isArray(resetOnChange)) {
+        resetOnChange.forEach(fld => fieldChange(formname, fld, ''));
+      } else {
+        fieldChange(formname, resetOnChange, '');
+      }
     }
     onChange(value);
   };
+  const noOptions = !selectOptions || selectOptions.length === 0;
   return (
-    <div className="form-group">
+    <div className={['form-group', noOptions ? hidden : ''].join(' ')}>
       {label && <label>{label}</label>}
       <select
         className={getInputClass(meta)}
+        disabled={noOptions}
         {...input}
         onChange={selectChange}
       >

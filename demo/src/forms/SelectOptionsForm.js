@@ -24,15 +24,25 @@ const fields = {
     reduxstate: 'os.data.types',
     label: 'Operating System',
     info: `Options from a redux store by prividing {reduxstate: 'os.data.types'}`,
-    resetOnChange: 'version'
+    resetOnChange: ['version', 'hardware']
   },
   version: {
     type: 'select',
     reduxstate: 'os.data.versions',
     label: 'OS Version',
-    optionKey: 'os',
+    optionsKey: 'os',
     info: `These options are dependend on 'Operating System' field`,
     isRequired: true
+  },
+  hardware: {
+    type: 'select',
+    optionsKey: 'os',
+    label: 'System',
+    info: `These options are dependend on 'Operating System' field`,
+    options: {
+      mac: ['Macbook Air 2014', 'Macbook Pro 2014', 'iMac 2015'],
+      windows: ['Dell XPS', 'HP Pavilon 2500']
+    }
   }
 };
 
