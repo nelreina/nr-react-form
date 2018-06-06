@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import code from './sample-code';
@@ -11,7 +11,7 @@ import FieldArrayForm from './forms/FieldArrayForm';
 import AllInputTypeForm from './forms/AllInputTypeForm';
 import SelectOptionsForm from './forms/SelectOptionsForm';
 import FormState from './FormState';
-import { LoginFormEmail } from '../../src';
+import { LoginFormEmail, LoginFormUserName } from "../../src";
 
 const Form = ({ comp: Component, action, name }) => (
   <div className="form">
@@ -20,8 +20,10 @@ const Form = ({ comp: Component, action, name }) => (
     </div>
     <hr className="divider" />
     <FormState name={name} />
-    <hr className="divider" />
-    <Highlight className="javascript code">{code[name] || ''}</Highlight>
+    {code[name]  && <Fragment>
+      <hr className="divider" />
+      <Highlight className="javascript code">{code[name]}</Highlight>
+    </Fragment>}
   </div>
 );
 
@@ -53,6 +55,12 @@ const DisplayForm = ({ action }) => (
       path="/login-form-email"
       render={props => (
         <Form comp={LoginFormEmail} action={action} name="loginFormEmail" />
+      )}
+    />
+    <Route
+      path="/login-form-username"
+      render={props => (
+        <Form comp={LoginFormUserName} action={action} name="loginFormUsername" />
       )}
     />
     <Route

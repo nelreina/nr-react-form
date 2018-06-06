@@ -38,6 +38,9 @@ class Demo extends Component {
                 <NavLink to="/login-form-email" className="nav-item nav-link">
                   Login Email
                 </NavLink>
+                <NavLink to="/login-form-username" className="nav-item nav-link">
+                  Login Username
+                </NavLink>
                 <NavLink to="/sign-up-form" className="nav-item nav-link">
                   Sign Up
                 </NavLink>

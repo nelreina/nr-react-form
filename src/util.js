@@ -1,5 +1,6 @@
 import React from 'react';
 import S from 'string';
+import { isString } from "lodash";
 
 import FieldText from './Bootstrap/FieldText';
 import FieldTextArea from './Bootstrap/FieldTextArea';
@@ -24,4 +25,4 @@ export const getInputType = (type, props) => {
   }
 };
 
-export const humanize = text => text.humanize().titleCase();
+export const humanize = text => isString(text) && text.humanize().titleCase();

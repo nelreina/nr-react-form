@@ -1,9 +1,11 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import List from 'nr-react-list';
+import { each, assign, isString, isArray, keyBy } from 'lodash';
 import FieldItem from './FieldItem';
-import { each, assign, isString } from 'lodash';
-import { css } from 'emotion';
+
+import { FormError, FormField } from "./styled";
+
 import {
   checkRequiredFields,
   checkMinLength,
@@ -11,9 +13,7 @@ import {
   checkType,
   checkIsEqual
 } from './validations';
-const divInput = css`
-  margin-bottom: 1em;
-`;
+
 class ReduxFormClass {
   constructor(name, fields, initialValues, customValidator) {
     this._formName = name;
@@ -45,19 +45,31 @@ class ReduxFormClass {
     return errors;
   };
   getComponent = () => {
+    if (isArray(this._fields)) {
+      let allFieldsContainsName = true;
+      this._fields.forEach(field =>{
+        if (!('name' in field)) {
+          allFieldsContainsName = false;
+        }
+      })
+      if (allFieldsContainsName) {
+        this._fields = keyBy(this._fields, 'name');
+      } else {
+        return () => <FormError>All objects in Array must contain a "name" field</FormError>
+      }
+    }
     let Form = props => {
       const { handleSubmit, action } = props;
-
       return (
         <form onSubmit={handleSubmit(action)}>
-          <div className={divInput}>
+          <FormField>
             <List
               of={FieldItem}
               iterator={this._fields}
               keyname="name"
               formname={this._formName}
             />
-          </div>
+          </FormField>
           <button className={this._buttonClass} type="submit">
             {this._buttonText || 'Submit'}
           </button>
